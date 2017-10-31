@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ErlangCompilerOptions">
-    <useRebarCompiler>true</useRebarCompiler>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="Erlang 19" project-jdk-type="Erlang SDK">
     <output url="file://$PROJECT_DIR$/out" />
-  </component>
-  <component name="RebarSettings">
-    <rebarPath>C:/rebar/rebar.cmd</rebarPath>
   </component>
 </project>
