@@ -19,10 +19,7 @@
   sequence_number,
   body}).
 
-% bind and bind_resp records are used to manage all 3 modes
-% i.e. transmitter, receiver, transceiver
-
--record(bind, {system_id=?DEFAULT_CSTRING,
+-record(bind_transmitter, {system_id=?DEFAULT_CSTRING,
   password=?DEFAULT_CSTRING,
   system_type=?DEFAULT_CSTRING,
   interface_version=?VERSION,
@@ -30,15 +27,35 @@
   addr_npi=?DEFAULT_NPI,
   address_range=?DEFAULT_CSTRING}).
 
--record(bind_resp, {system_id=?DEFAULT_CSTRING,
+-record(bind_transmitter_resp, {system_id=?DEFAULT_CSTRING,
+  sc_interface_version}).
+
+-record(bind_receiver, {system_id=?DEFAULT_CSTRING,
+  password=?DEFAULT_CSTRING,
+  system_type=?DEFAULT_CSTRING,
+  interface_version=?VERSION,
+  addr_ton=?DEFAULT_TON,
+  addr_npi=?DEFAULT_NPI,
+  address_range=?DEFAULT_CSTRING}).
+
+-record(bind_receiver_resp, {system_id=?DEFAULT_CSTRING,
+  sc_interface_version}).
+
+-record(bind_transceiver, {system_id=?DEFAULT_CSTRING,
+  password=?DEFAULT_CSTRING,
+  system_type=?DEFAULT_CSTRING,
+  interface_version=?VERSION,
+  addr_ton=?DEFAULT_TON,
+  addr_npi=?DEFAULT_NPI,
+  address_range=?DEFAULT_CSTRING}).
+
+-record(bind_transceiver_resp, {system_id=?DEFAULT_CSTRING,
   sc_interface_version}).
 
 -record(outbind, {system_id=?DEFAULT_CSTRING,
   password=?DEFAULT_CSTRING}).
 
-% empty_body is used to manage various pdu
-% i.e. unbind, unbind_resp, generic_nack
--record(empty_body, {}).
+-record(generic_nack, {}).
 
 -record(submit_sm, {service_type=?DEFAULT_CSTRING,
   source_addr_ton=?DEFAULT_TON,
@@ -128,5 +145,9 @@
 }).
 
 -record(deliver_sm_resp, {message_id=?DEFAULT_CSTRING}).
+
+-record(unbind, {}).
+
+-record(unbind_resp, {}).
 
 -endif.

@@ -19,7 +19,7 @@
 -spec pack(bind_transmitter()) -> binary().
 -spec unpack(binary()) -> bind_transmitter().
 
-pack(#bind{system_id=SystemId,
+pack(#bind_transmitter{system_id=SystemId,
   password=Password,
   system_type=SystemType,
   interface_version=InterfaceVersion,
@@ -47,7 +47,7 @@ unpack(Bin0) ->
   {AddrNpi, Bin6} = bin_to_integer(Bin5, 1),
   {AddressRange, _} = bin_to_cstring(Bin6, 41),
 
-  #bind {system_id=SystemId,
+  #bind_transmitter {system_id=SystemId,
     password=Password,
     system_type=SystemType,
     interface_version=InterfaceVersion,

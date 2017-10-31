@@ -13,19 +13,19 @@
 
 -include("smpp34pdu.hrl").
 
--type(generic_nack() :: #empty_body{}).
--type(bind_receiver() :: #bind{}).
--type(bind_receiver_resp() :: #bind_resp{}).
--type(bind_transmitter() :: #bind{}).
--type(bind_transmitter_resp() :: #bind_resp{}).
+-type(generic_nack() :: #generic_nack{}).
+-type(bind_receiver() :: #bind_receiver{}).
+-type(bind_receiver_resp() :: #bind_receiver_resp{}).
+-type(bind_transmitter() :: #bind_transmitter{}).
+-type(bind_transmitter_resp() :: #bind_transmitter_resp{}).
 -type(submit_sm() :: #submit_sm{}).
 -type(submit_sm_resp() :: #submit_sm_resp{}).
 -type(deliver_sm() :: #deliver_sm{}).
 -type(deliver_sm_resp() :: #deliver_sm_resp{}).
--type(unbind() :: #empty_body{}).
--type(unbind_resp() :: #empty_body{}).
--type(bind_transceiver() :: #bind{}).
--type(bind_transceiver_resp() :: #bind_resp{}).
+-type(unbind() :: #unbind{}).
+-type(unbind_resp() :: #unbind_resp{}).
+-type(bind_transceiver() :: #bind_transceiver{}).
+-type(bind_transceiver_resp() :: #bind_transceiver_resp{}).
 -type(outbind() :: #outbind{}).
 
 -type(invalid_command_id() :: {'error', {'command_id', integer()}}).

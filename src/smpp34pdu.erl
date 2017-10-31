@@ -24,11 +24,11 @@
 
 -spec unpack_body(integer(), binary()) -> valid_pdu() | invalid_command_id().
 
-pack(CmdStat, Snum, #bind{}=Body) ->
+pack(CmdStat, Snum, #bind_transmitter{}=Body) ->
   Bin = smpp34pdu_bind_transmitter:pack(Body),
   pack(?BIND_TRANSMITTER, CmdStat, Snum, Bin);
 
-pack(CmdStat, Snum, #bind_resp{}=Body) ->
+pack(CmdStat, Snum, #bind_transmitter_resp{}=Body) ->
   Bin = smpp34pdu_bind_transmitter_resp:pack(Body),
   pack(?BIND_TRANSMITTER_RESP, CmdStat, Snum, Bin).
 
