@@ -1,0 +1,19 @@
+%%%-------------------------------------------------------------------
+%%% @author Praveen Paulose
+%%% @copyright (C) 2017, Celusion Technologies Pvt. Ltd.
+%%% @doc
+%%%
+%%% @end
+%%% Created : 01. Nov 2017 00:51
+%%%-------------------------------------------------------------------
+{application, smpp34pdu, [
+  {description, "SMPP 3.4 PDU Library"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {mod, {smpp34pdu, []}},
+  {env, []}
+]}.
