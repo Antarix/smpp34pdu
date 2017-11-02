@@ -30,8 +30,15 @@ pack(CmdStat, Snum, #bind_transmitter{}=Body) ->
 
 pack(CmdStat, Snum, #bind_transmitter_resp{}=Body) ->
   Bin = smpp34pdu_bind_transmitter_resp:pack(Body),
-  pack(?BIND_TRANSMITTER_RESP, CmdStat, Snum, Bin).
+  pack(?BIND_TRANSMITTER_RESP, CmdStat, Snum, Bin);
 
+pack(CmdStat, Snum, #bind_receiver{} = Body) ->
+  Bin = smpp34pdu_bind_receiver:pack(Body),
+  pack(?BIND_RECEIVER, CmdStat, Snum, Bin);
+
+pack(CmdStat, Snum, #bind_receiver_resp{}=Body) ->
+  Bin = smpp34pdu_bind_receiver_resp:pack(Body),
+  pack(?BIND_RECEIVER_RESP, CmdStat, Snum, Bin).
 
 pack(Cid, CmdStat, Snum, Body) ->
   Clen = byte_size(Body) + ?HEADER_OCTET_SIZE,
@@ -77,9 +84,16 @@ unpack(Bin0, ok, Accm) ->
       end
   end.
 
+
 unpack_body(?BIND_TRANSMITTER, Bin) ->
   smpp34pdu_bind_transmitter:unpack(Bin);
 unpack_body(?BIND_TRANSMITTER_RESP, Bin) ->
   smpp34pdu_bind_transmitter_resp:unpack(Bin);
+
+unpack_body(?BIND_RECEIVER, Bin) ->
+  smpp34pdu_bind_receiver:unpack(Bin);
+unpack_body(?BIND_RECEIVER_RESP, Bin) ->
+  smpp34pdu_bind_receiver_resp:unpack(Bin);
+
 unpack_body(CommandId, _) ->
   {error, {command_id, CommandId}}.
