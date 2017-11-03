@@ -19,6 +19,7 @@ rel/example_project
 .idea/**/tasks.xml
 .idea/dictionaries
 .idea/misc.xml
+.idea/rebar.xml
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
