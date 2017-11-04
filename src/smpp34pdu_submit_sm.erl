@@ -186,7 +186,7 @@ unpack(Bin0) ->
 ?TLV_UNPACK_FIELD(submit_sm, ms_validity, ?MS_VALIDITY);
 ?TLV_UNPACK_FIELD(submit_sm, ms_msg_wait_facilities, ?MS_MSG_WAIT_FACILITIES);
 ?TLV_UNPACK_FIELD(submit_sm, number_of_messages, ?NUMBER_OF_MESSAGES);
-?TLV_UNPACK_FIELD(submit_sm, alert_on_message_delivery, ?ALERT_ON_MESSAGE_DELIVERY);
+?TLV_UNPACK_FIELD(submit_sm, alert_on_msg_delivery, ?ALERT_ON_MESSAGE_DELIVERY);
 ?TLV_UNPACK_FIELD(submit_sm, language_indicator, ?LANGUAGE_INDICATOR);
 ?TLV_UNPACK_FIELD(submit_sm, its_reply_type, ?ITS_REPLY_TYPE);
 ?TLV_UNPACK_FIELD(submit_sm, its_session_info, ?ITS_SESSION_INFO);
