@@ -1,6 +1,6 @@
 %%%-------------------------------------------------------------------
 %%% @author Antarix Tandon
-%%% @copyright (C) 2017, <COMPANY>
+%%% @copyright (C) 2017, Celusion Technologies Pvt. Ltd.
 %%% @doc
 %%%
 %%% @end
