@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="RebarSettings">
-    <rebarPath>$PROJECT_DIR$/../rebarlib/rebar3</rebarPath>
+    <rebarPath>D:\SMS ConneXion\src\pdu\rebar3</rebarPath>
   </component>
 </project>
