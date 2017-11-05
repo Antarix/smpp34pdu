@@ -95,16 +95,19 @@ unpack(Bin0, ok, Accm) ->
 
 unpack_body(?BIND_TRANSMITTER, Bin) ->
   smpp34pdu_bind_transmitter:unpack(Bin);
+
 unpack_body(?BIND_TRANSMITTER_RESP, Bin) ->
   smpp34pdu_bind_transmitter_resp:unpack(Bin);
 
 unpack_body(?BIND_RECEIVER, Bin) ->
   smpp34pdu_bind_receiver:unpack(Bin);
+
 unpack_body(?BIND_RECEIVER_RESP, Bin) ->
   smpp34pdu_bind_receiver_resp:unpack(Bin);
 
 unpack_body(?SUBMIT_SM, Bin) ->
   smpp34pdu_submit_sm:unpack(Bin);
+
 unpack_body(?SUBMIT_SM_RESP, Bin) ->
   smpp34pdu_submit_sm_resp:unpack(Bin);
 
