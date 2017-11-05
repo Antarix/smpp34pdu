@@ -7,7 +7,7 @@
   </component>
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/_build/default/lib/smpp34pdu/ebin" />
-    <output-test url="file://$MODULE_DIR$/out/test/pdu" />
+    <output-test url="file://$MODULE_DIR$/.eunit" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/include" type="erlang-include" />
