@@ -203,7 +203,6 @@
   sm_length=0,
   short_message=?DEFAULT_STRING}).
 
--record(replace_sm_resp, {}).
 
 
 %%Names.erl
