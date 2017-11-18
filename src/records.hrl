@@ -155,8 +155,6 @@
 
 -record(enquire_link, {}).
 -record(enquire_link_resp, {}).
--record(unbind, {}).
--record(unbind_resp, {}).
 
 -record(alert_notification, {source_addr_ton=?DEFAULT_TON,
   source_addr_npi=?DEFAULT_NPI,
