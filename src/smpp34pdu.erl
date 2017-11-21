@@ -58,6 +58,12 @@ pack(CmdStat, Snum, #unbind{}) ->
 pack(CmdStat, Snum, #unbind_resp{}) ->
   pack(?UNBIND_RESP, CmdStat, Snum, <<>>);
 
+pack(CmdStat, Snum, #enquire_link{}) ->
+  pack(?ENQUIRE_LINK, CmdStat, Snum, <<>>);
+
+pack(CmdStat, Snum, #enquire_link_resp{}) ->
+  pack(?ENQUIRE_LINK_RESP, CmdStat, Snum, <<>>);
+
 pack(CmdStat, Snum, #submit_sm{}=Body)  ->
   Bin = smpp34pdu_submit_sm:pack(Body),
   pack(?SUBMIT_SM, CmdStat, Snum, Bin);
@@ -141,6 +147,11 @@ unpack_body(?UNBIND, _) ->
   #unbind{};
 unpack_body(?UNBIND_RESP, _) ->
   #unbind_resp{};
+
+unpack_body(?ENQUIRE_LINK, _) ->
+  #enquire_link{};
+unpack_body(?ENQUIRE_LINK_RESP, _) ->
+  #enquire_link_resp{};
 
 unpack_body(CommandId, _) ->
   {error, {command_id, CommandId}}.
