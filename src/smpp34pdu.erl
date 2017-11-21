@@ -40,6 +40,14 @@ pack(CmdStat, Snum, #bind_receiver_resp{}=Body) ->
   Bin = smpp34pdu_bind_receiver_resp:pack(Body),
   pack(?BIND_RECEIVER_RESP, CmdStat, Snum, Bin);
 
+pack(CmdStat, Snum, #bind_transceiver{}=Body) ->
+  Bin = smpp34pdu_bind_transceiver:pack(Body),
+  pack(?BIND_TRANSCEIVER, CmdStat, Snum, Bin);
+
+pack(CmdStat, Snum, #bind_transceiver_resp{}=Body) ->
+  Bin = smpp34pdu_bind_transceiver_resp:pack(Body),
+  pack(?BIND_TRANSCEIVER_RESP, CmdStat, Snum, Bin);
+
 pack(CmdStat, Snum, #submit_sm{}=Body)  ->
   Bin = smpp34pdu_submit_sm:pack(Body),
   pack(?SUBMIT_SM, CmdStat, Snum, Bin);
@@ -104,6 +112,12 @@ unpack_body(?BIND_RECEIVER, Bin) ->
 
 unpack_body(?BIND_RECEIVER_RESP, Bin) ->
   smpp34pdu_bind_receiver_resp:unpack(Bin);
+
+unpack_body(?BIND_TRANSCEIVER, Bin) ->
+  smpp34pdu_bind_transceiver:unpack(Bin);
+
+unpack_body(?BIND_TRANSCEIVER_RESP, Bin) ->
+  smpp34pdu_bind_transceiver_resp:unpack(Bin);
 
 unpack_body(?SUBMIT_SM, Bin) ->
   smpp34pdu_submit_sm:unpack(Bin);
