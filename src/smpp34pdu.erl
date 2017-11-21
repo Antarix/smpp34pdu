@@ -24,6 +24,10 @@
 
 -spec unpack_body(integer(), binary()) -> valid_pdu() | invalid_command_id().
 
+
+pack(CmdStat, Snum, #generic_nack{}) ->
+  pack(?GENERIC_NACK, CmdStat, Snum, <<>>);
+
 pack(CmdStat, Snum, #bind_transmitter{}=Body) ->
   Bin = smpp34pdu_bind_transmitter:pack(Body),
   pack(?BIND_TRANSMITTER, CmdStat, Snum, Bin);
@@ -48,6 +52,12 @@ pack(CmdStat, Snum, #bind_transceiver_resp{}=Body) ->
   Bin = smpp34pdu_bind_transceiver_resp:pack(Body),
   pack(?BIND_TRANSCEIVER_RESP, CmdStat, Snum, Bin);
 
+pack(CmdStat, Snum, #unbind{}) ->
+  pack(?UNBIND, CmdStat, Snum, <<>>);
+
+pack(CmdStat, Snum, #unbind_resp{}) ->
+  pack(?UNBIND_RESP, CmdStat, Snum, <<>>);
+
 pack(CmdStat, Snum, #submit_sm{}=Body)  ->
   Bin = smpp34pdu_submit_sm:pack(Body),
   pack(?SUBMIT_SM, CmdStat, Snum, Bin);
@@ -55,6 +65,7 @@ pack(CmdStat, Snum, #submit_sm{}=Body)  ->
 pack(CmdStat, Snum, #submit_sm_resp{}=Body) ->
   Bin = smpp34pdu_submit_sm_resp:pack(Body),
   pack(?SUBMIT_SM_RESP, CmdStat, Snum, Bin).
+
 
 pack(Cid, CmdStat, Snum, Body) ->
   Clen = byte_size(Body) + ?HEADER_OCTET_SIZE,
@@ -100,7 +111,8 @@ unpack(Bin0, ok, Accm) ->
       end
   end.
 
-
+unpack_body(?GENERIC_NACK, _) ->
+  #generic_nack{};
 unpack_body(?BIND_TRANSMITTER, Bin) ->
   smpp34pdu_bind_transmitter:unpack(Bin);
 
@@ -124,6 +136,11 @@ unpack_body(?SUBMIT_SM, Bin) ->
 
 unpack_body(?SUBMIT_SM_RESP, Bin) ->
   smpp34pdu_submit_sm_resp:unpack(Bin);
+
+unpack_body(?UNBIND, _) ->
+  #unbind{};
+unpack_body(?UNBIND_RESP, _) ->
+  #unbind_resp{};
 
 unpack_body(CommandId, _) ->
   {error, {command_id, CommandId}}.
