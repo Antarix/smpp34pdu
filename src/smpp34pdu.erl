@@ -8,7 +8,7 @@
 %%%-------------------------------------------------------------------
 -module(smpp34pdu).
 -author("Praveen Paulose").
--include("smpp34pdu.hrl").
+-include("../include/smpp34pdu.hrl").
 -include("types.hrl").
 
 %% API
