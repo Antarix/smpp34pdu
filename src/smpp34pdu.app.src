@@ -14,6 +14,6 @@
     kernel,
     stdlib
   ]},
-  {mod, {smpp34pdu, []}},
+  {mod, {smpp34pdu_app, []}},
   {env, []}
 ]}.
