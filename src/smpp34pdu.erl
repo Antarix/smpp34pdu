@@ -12,7 +12,7 @@
 -include("types.hrl").
 
 %% API
--export([pack/3, unpack/1]).
+-export([pack/3, unpack/1,start/0,stop/0]).
 
 -type(unpack_status() :: 'header_length' | 'body_length' | 'ok').
 
@@ -24,6 +24,12 @@
 
 -spec unpack_body(integer(), binary()) -> valid_pdu() | invalid_command_id().
 
+
+start() ->
+  application:start(smpp34pdu).
+
+stop() ->
+  application:stop(smpp34pdu).
 
 pack(CmdStat, Snum, #generic_nack{}) ->
   pack(?GENERIC_NACK, CmdStat, Snum, <<>>);
